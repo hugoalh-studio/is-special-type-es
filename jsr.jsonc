@@ -1,7 +1,7 @@
 // This file is only for JSR related, non-JSR related must set in the file `deno.jsonc`!
 {
 	"name": "@hugoalh/is-special-type",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"exports": {
 		"./is-async-function": "./is_async_function.ts",
 		"./is-async-generator-function": "./is_async_generator_function.ts",
@@ -25,7 +25,9 @@
 			"**/bench.ts",
 			"**/bench.tsx",
 			"**/test.ts",
-			"**/test.tsx"
+			"**/test.tsx",
+			".dnt.ts",
+			"npm/**"
 		],
 		"include": [
 			"**/*.ts",
