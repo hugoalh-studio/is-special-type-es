@@ -59,11 +59,8 @@ This only reports back what the JavaScript engine is seeing; In particular, the 
 
 > **ℹ️ Note**
 >
-> Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
-
-> **ℹ️ Note**
->
-> It is recommended to use this module with tag for immutability.
+> - Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
+> - It is recommended to use this module with tag for immutability.
 
 ### #️⃣ Remote Import Paths
 
@@ -74,17 +71,14 @@ This only reports back what the JavaScript engine is seeing; In particular, the 
 
 > **ℹ️ Note**
 >
-> Although it is recommended to import the entire module with the main path `mod.ts`, it is also able to import part of the module with sub path if available, but do not import if:
+> - Although it is recommended to import the entire module with the main path `mod.ts`, it is also able to import part of the module with sub path if available, but do not import if:
 >
 >   - it's file path has an underscore prefix (e.g.: `_foo.ts`, `_util/bar.ts`), or
 >   - it is a benchmark or test file (e.g.: `foo.bench.ts`, `foo.test.ts`), or
 >   - it's symbol has an underscore prefix (e.g.: `export function _baz() {}`).
 >
 >   These elements are not considered part of the public API, thus no stability is guaranteed for them.
-
-> **ℹ️ Note**
->
-> Although there have 3rd party services which provide enhanced, equal, or similar methods/ways to remote import the module, beware these services maybe inject unrelated elements and thus affect the security.
+> - Although there have 3rd party services which provide enhanced, equal, or similar methods/ways to remote import the module, beware these services maybe inject unrelated elements and thus affect the security.
 
 ### 🛡️ Permissions
 
