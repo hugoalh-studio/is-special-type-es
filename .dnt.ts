@@ -15,7 +15,9 @@ const transformResult: TransformOutput = await transform({
 		"is_sync_generator_function.ts",
 		"is_sync_generator.ts"
 	],
-	mappings: {},
+	mappings: {
+		"node:util": { name: "node:util" }
+	},
 	shims: [],
 	target: "Latest"
 });

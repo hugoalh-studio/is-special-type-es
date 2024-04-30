@@ -17,138 +17,78 @@ An ES (JavaScript & TypeScript) module to determine whether the item is special/
 
 This only reports back what the JavaScript engine is seeing; In particular, the return value may not match the original source code if a transpilation tool was used.
 
-## 🎯 Target
+## 🔰 Begin
 
-- Bun ^ v1.0.0
-- Cloudflare Workers
-- Deno >= v1.34.0 / >= v1.41.1 (For JSR Only)
-  > **🛡️ Require Permission**
-  >
-  > *N/A*
-- NodeJS >= v16.13.0
+### 🎯 Targets
 
-## 🔰 Usage
-
-### Via JSR With `node_modules`
-
-> **🎯 Supported Target**
->
-> - Bun
-> - Cloudflare Workers
-> - NodeJS
-
-1. Install via:
-    - Bun
-      ```sh
-      bunx jsr add @hugoalh/is-special-type[@${Tag}]
-      ```
-    - NPM
-      ```sh
-      npx jsr add @hugoalh/is-special-type[@${Tag}]
-      ```
-    - PNPM
-      ```sh
-      pnpm dlx jsr add @hugoalh/is-special-type[@${Tag}]
-      ```
-    - Yarn
-      ```sh
-      yarn dlx jsr add @hugoalh/is-special-type[@${Tag}]
-      ```
-2. Import at the script:
-    ```ts
-    import ... from "@hugoalh/is-special-type";
-    ```
+|  | **Registry - JSR** | **Registry - NPM** | **Remote Import** |
+|:--|:--|:--|:--|
+| **Bun** >= v1.1.0 | [✔️ `node_modules`](https://jsr.io/docs/npm-compatibility) | [✔️ Specifier `npm:`](https://bun.sh/docs/runtime/autoimport) | ❌ |
+| **Cloudflare Workers** | [✔️ `node_modules`](https://jsr.io/docs/with/cloudflare-workers) | [✔️ `node_modules`](https://docs.npmjs.com/using-npm-packages-in-your-projects) | ❌ |
+| **Deno** >= v1.42.0 | [✔️ Specifier `jsr:`](https://jsr.io/docs/with/deno) | [✔️ Specifier `npm:`](https://docs.deno.com/runtime/manual/node/npm_specifiers) | [✔️](https://docs.deno.com/runtime/manual/basics/modules/#remote-import) |
+| **NodeJS** >= v16.13.0 | [✔️ `node_modules`](https://jsr.io/docs/with/node) | [✔️ `node_modules`](https://docs.npmjs.com/using-npm-packages-in-your-projects) | ❌ |
 
 > **ℹ️ Note**
 >
-> - Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
-> - It is recommended to import the module with tag for immutability.
+> It is possible to use this module in other ways which not listed in here, however it is not officially supported.
 
-### Via JSR With Specifier
+### #️⃣ Registries Identifier
 
-> **🎯 Supported Target**
->
-> - Deno
+<table>
+<tr>
+<th>JSR</th>
+<td width="100%">
 
-1. Import at the script:
-    ```ts
-    import ... from "jsr:@hugoalh/is-special-type[@${Tag}]";
-    ```
+```
+@hugoalh/is-special-type
+```
 
-> **ℹ️ Note**
->
-> - Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
-> - It is recommended to import the module with tag for immutability.
+</td>
+</tr>
+<tr>
+<th>NPM</th>
+<td width="100%">
 
-### Via NPM With `node_modules`
+```
+@hugoalh/is-special-type
+```
 
-> **🎯 Supported Target**
->
-> - Cloudflare Workers
-> - NodeJS
-
-1. Install via:
-    - NPM
-      ```sh
-      npm install @hugoalh/is-special-type[@${Tag}]
-      ```
-    - PNPM
-      ```sh
-      pnpm add @hugoalh/is-special-type[@${Tag}]
-      ```
-    - Yarn
-      ```sh
-      yarn add @hugoalh/is-special-type[@${Tag}]
-      ```
-2. Import at the script:
-    ```ts
-    import ... from "@hugoalh/is-special-type";
-    ```
+</td>
+</tr>
+</table>
 
 > **ℹ️ Note**
 >
-> - Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
-> - It is recommended to import the module with tag for immutability.
-
-### Via NPM With Specifier
-
-> **🎯 Supported Target**
->
-> - Bun
-> - Deno
-
-1. Import at the script:
-    ```ts
-    import ... from "npm:@hugoalh/is-special-type[@${Tag}]";
-    ```
+> Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
 
 > **ℹ️ Note**
 >
-> - Although it is recommended to import the entire module, it is also able to import part of the module with sub path if available, please visit [file `jsr.jsonc`](./jsr.jsonc) property `exports` for available sub paths.
-> - It is recommended to import the module with tag for immutability.
+> It is recommended to use this module with tag for immutability.
 
-### Via Remote Import
+### #️⃣ Remote Import Paths
 
-> **🎯 Supported Target**
->
-> - Deno
-
-1. Import at the script:
-    ```ts
-    /* Via GitHub Raw (Require Tag) */
-    import ... from "https://raw.githubusercontent.com/hugoalh-studio/is-special-type-es/${Tag}/mod.ts";
-    ```
+- Via GitHub Raw (Require Tag)
+  ```
+  https://raw.githubusercontent.com/hugoalh-studio/is-special-type-es/${Tag}/mod.ts
+  ```
 
 > **ℹ️ Note**
 >
-> - Although it is recommended to import the entire module with the main path `mod.ts`, it is also able to import part of the module with sub path if available, but do not import if:
+> Although it is recommended to import the entire module with the main path `mod.ts`, it is also able to import part of the module with sub path if available, but do not import if:
 >
 >   - it's file path has an underscore prefix (e.g.: `_foo.ts`, `_util/bar.ts`), or
 >   - it is a benchmark or test file (e.g.: `foo.bench.ts`, `foo.test.ts`), or
 >   - it's symbol has an underscore prefix (e.g.: `export function _baz() {}`).
 >
 >   These elements are not considered part of the public API, thus no stability is guaranteed for them.
-> - Although there have 3rd party services which provide enhanced, equal, or similar methods/ways to remote import the module, beware these services maybe inject unrelated elements and thus affect the security.
+
+> **ℹ️ Note**
+>
+> Although there have 3rd party services which provide enhanced, equal, or similar methods/ways to remote import the module, beware these services maybe inject unrelated elements and thus affect the security.
+
+### 🛡️ Permissions
+
+This module does not require any permission.
 
 ## 🧩 API
 
