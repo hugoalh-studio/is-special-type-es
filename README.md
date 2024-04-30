@@ -82,9 +82,9 @@ This only reports back what the JavaScript engine is seeing; In particular, the 
 
 ### 🛡️ Permissions
 
-This module does not require any permission.
+*This module does not require any permission.*
 
-## 🧩 API
+## 🧩 APIs
 
 - ```ts
   function isAsyncFunction(item: unknown): item is (...parameters: unknown[]) => Promise<unknown>;
