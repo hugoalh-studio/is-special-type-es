@@ -30,32 +30,18 @@ This only reports back what the JavaScript engine is seeing; In particular, the 
 
 > **ℹ️ Note**
 >
-> It is possible to use this module in other ways which not listed in here, however it is not officially supported.
+> It is possible to use this module in other methods/ways which not listed in here, however it is not officially supported.
 
 ### #️⃣ Registries Identifier
 
-<table><tbody align="left">
-<tr>
-<th>JSR</th>
-<td width="100%">
-
-```
-@hugoalh/is-special-type
-```
-
-</td>
-</tr>
-<tr>
-<th>NPM</th>
-<td width="100%">
-
-```
-@hugoalh/is-special-type
-```
-
-</td>
-</tr>
-</tbody></table>
+- **JSR:**
+  ```
+  @hugoalh/is-special-type
+  ```
+- **NPM:**
+  ```
+  @hugoalh/is-special-type
+  ```
 
 > **ℹ️ Note**
 >
@@ -64,7 +50,7 @@ This only reports back what the JavaScript engine is seeing; In particular, the 
 
 ### #️⃣ Remote Import Paths
 
-- Via GitHub Raw (Require Tag)
+- **GitHub Raw:** (Require Tag)
   ```
   https://raw.githubusercontent.com/hugoalh-studio/is-special-type-es/${Tag}/mod.ts
   ```
