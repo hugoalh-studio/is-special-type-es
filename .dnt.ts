@@ -1,53 +1,44 @@
-import { transform, type TransformOutput } from "DNT/transform";
-import { copy as fsCopy } from "STD/fs/copy";
-import { emptyDir } from "STD/fs/empty-dir";
-import { ensureDir } from "STD/fs/ensure-dir";
-import { walk as readDir, type WalkEntry } from "STD/fs/walk";
-import { dirname as pathDirname } from "node:path";
-const pathsMain: WalkEntry[] = await Array.fromAsync(readDir("."));
-const transformResult: TransformOutput = await transform({
-	entryPoints: [
-		"mod.ts",
-		"is_async_function.ts",
-		"is_async_generator_function.ts",
-		"is_async_generator.ts",
-		"is_sync_function.ts",
-		"is_sync_generator_function.ts",
-		"is_sync_generator.ts"
+import {
+	getEntrypointsFromConfig,
+	invokeDenoNodeJSTransformer
+} from "DNT";
+await invokeDenoNodeJSTransformer({
+	assetsCopy: [
+		"LICENSE.md",
+		"README.md"
 	],
-	mappings: {
-		"node:util": { name: "node:util" }
+	entrypoints: await getEntrypointsFromConfig("jsr.jsonc"),
+	generateDeclarationMap: true,
+	metadata: {
+		name: "@hugoalh/is-special-type",
+		version: "0.1.3",
+		description: "A module to determine whether the item is special/specific type.",
+		keywords: [
+			"is",
+			"special",
+			"specific",
+			"type"
+		],
+		homepage: "https://github.com/hugoalh-studio/is-special-type-es#readme",
+		bugs: {
+			url: "https://github.com/hugoalh-studio/is-special-type-es/issues"
+		},
+		license: "MIT",
+		author: "hugoalh",
+		repository: {
+			type: "git",
+			url: "git+https://github.com/hugoalh-studio/is-special-type-es.git"
+		},
+		scripts: {
+		},
+		engines: {
+			node: ">=16.13.0"
+		},
+		private: false,
+		publishConfig: {
+			access: "public"
+		}
 	},
-	shims: [],
-	target: "Latest"
+	outputDirectory: "npm",
+	outputDirectoryPreEmpty: true
 });
-const npmOutputDir = "npm";
-const npmOutputDirDist = `${npmOutputDir}/dist`;
-const npmOutputDirSource = `${npmOutputDir}/src`;
-await ensureDir(npmOutputDirDist);
-await ensureDir(npmOutputDirSource);
-await emptyDir(npmOutputDirDist);
-await emptyDir(npmOutputDirSource);
-for (const { filePath, fileText } of transformResult.main.files) {
-	const filePathOutput = `${npmOutputDirSource}/${filePath}`;
-	await ensureDir(pathDirname(filePathOutput));
-	await Deno.writeTextFile(filePathOutput, fileText);
-}
-for (const { path } of pathsMain) {
-	if (
-		/^LICENSE[^\\\/]*\.md$/.test(path) ||
-		/^README[^\\\/]*\.md$/.test(path)
-	) {
-		await fsCopy(path, `${npmOutputDir}/${path}`, {
-			overwrite: true,
-			preserveTimestamps: true
-		});
-	}
-}
-await new Deno.Command("pwsh", {
-	args: ["-NonInteractive", "-Command", "$ErrorActionPreference = 'Stop'; npm install; npm run build; npm publish --dry-run"],
-	cwd: `${Deno.cwd()}/${npmOutputDir}`,
-	stderr: "inherit",
-	stdin: "inherit",
-	stdout: "inherit"
-}).output();
