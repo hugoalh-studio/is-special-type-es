@@ -1,17 +1,18 @@
 import {
-	getEntrypointsFromConfig,
+	getMetadataFromConfig,
 	invokeDenoNodeJSTransformer
 } from "DNT";
+const configJSR = await getMetadataFromConfig("jsr.jsonc");
 await invokeDenoNodeJSTransformer({
 	assetsCopy: [
 		"LICENSE.md",
 		"README.md"
 	],
-	entrypoints: await getEntrypointsFromConfig("jsr.jsonc"),
+	entrypoints: configJSR.exports,
 	generateDeclarationMap: true,
 	metadata: {
 		name: "@hugoalh/is-special-type",
-		version: "0.1.3",
+		version: configJSR.version,
 		description: "A module to determine whether the item is special/specific type.",
 		keywords: [
 			"is",
