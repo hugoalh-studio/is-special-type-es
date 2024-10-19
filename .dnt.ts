@@ -8,11 +8,11 @@ await invokeDenoNodeJSTransformer({
 		"LICENSE.md",
 		"README.md"
 	],
-	entrypoints: configJSR.exports,
+	entrypoints: configJSR.getExports(),
 	generateDeclarationMap: true,
 	metadata: {
-		name: "@hugoalh/is-special-type",
-		version: configJSR.version,
+		name: configJSR.getName(),
+		version: configJSR.getVersion(),
 		description: "A module to determine whether the item is special/specific type.",
 		keywords: [
 			"is",

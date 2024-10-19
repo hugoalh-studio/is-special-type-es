@@ -11,7 +11,8 @@
 		"./is-sync-generator": "./is_sync_generator.ts",
 		".": "./mod.ts"
 	},
-	"imports": { },
+	"imports": {
+	},
 	"publish": {
 		"exclude": [
 			"**/*_bench.ts",
