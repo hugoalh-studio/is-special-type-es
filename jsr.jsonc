@@ -1,14 +1,14 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"name": "@hugoalh/is-special-type",
-	"version": "0.1.3",
+	"version": "0.2.0",
 	"exports": {
-		"./is-async-function": "./is_async_function.ts",
-		"./is-async-generator-function": "./is_async_generator_function.ts",
-		"./is-async-generator": "./is_async_generator.ts",
-		"./is-sync-function": "./is_sync_function.ts",
-		"./is-sync-generator-function": "./is_sync_generator_function.ts",
-		"./is-sync-generator": "./is_sync_generator.ts",
+		"./async-function": "./async_function.ts",
+		"./async-generator-function": "./async_generator_function.ts",
+		"./async-generator": "./async_generator.ts",
+		"./sync-function": "./sync_function.ts",
+		"./sync-generator-function": "./sync_generator_function.ts",
+		"./sync-generator": "./sync_generator.ts",
 		".": "./mod.ts"
 	},
 	"imports": {
