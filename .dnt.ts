@@ -20,15 +20,15 @@ await invokeDenoNodeJSTransformer({
 			"specific",
 			"type"
 		],
-		homepage: "https://github.com/hugoalh-studio/is-special-type-es#readme",
+		homepage: "https://github.com/hugoalh/is-special-type-es#readme",
 		bugs: {
-			url: "https://github.com/hugoalh-studio/is-special-type-es/issues"
+			url: "https://github.com/hugoalh/is-special-type-es/issues"
 		},
 		license: "MIT",
 		author: "hugoalh",
 		repository: {
 			type: "git",
-			url: "git+https://github.com/hugoalh-studio/is-special-type-es.git"
+			url: "git+https://github.com/hugoalh/is-special-type-es.git"
 		},
 		scripts: {
 		},
